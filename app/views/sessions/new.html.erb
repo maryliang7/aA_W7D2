@@ -1,0 +1,20 @@
+<h1>Please, Log In</h1>
+
+<form action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+            <h3 style="color:red"><%= error %></h3>
+        <% end %>
+    <% end %>
+    <label for="email">Email: </label>
+    <input type="text" name="user[email]" id="email">
+    <br>
+    <br>
+    <label for="password">Password: </label>
+    <input type="password" name="user[password]" id="password">
+    <br>
+    <br>
+    <input type="submit" value="Log in!">
+
+</form>
